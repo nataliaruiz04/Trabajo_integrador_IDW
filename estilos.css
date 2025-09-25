@@ -1,5 +1,3 @@
-/* Estilos modernos y responsivos para la clínica */
-
 :root {
     --color-primario: #4d85f4;
     --color-secundario: #5bc8f4;
@@ -15,17 +13,26 @@
     box-sizing: border-box;
 }
 
+/* === Asegurar altura completa para el layout === */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-fondo);
     color: var(--color-texto);
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
     background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
     color: white;
-    padding: 1.5rem 5%;
+    padding: 0.1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,6 +40,8 @@ header {
 }
 
 header h1 {
+    margin-left: 50px;
+    margin-right: 0px;
     font-size: 1.8rem;
     font-weight: 700;
 }
@@ -58,6 +67,7 @@ nav a:hover {
 
 main {
     padding: 3rem 5%;
+    flex: 1; 
 }
 
 /* Catálogo de profesionales */
@@ -80,6 +90,9 @@ main {
     overflow: hidden;
     box-shadow: var(--sombra);
     transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profesional-card:hover {
@@ -87,21 +100,28 @@ main {
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
+
 .profesional-card img {
     width: 100%;
-    height: 200px;
+    height: auto;
+    max-height: 250px;
     object-fit: cover;
+    aspect-ratio: 3 / 4; 
+    object-position: center;
+    border-radius: 12px 12px 0 0;
 }
 
 .profesional-card h3 {
-    padding: 1rem;
+    padding: 1rem 1rem 0.5rem;
     font-size: 1.2rem;
     color: var(--color-primario);
+    text-align: center;
 }
 
 .profesional-card p {
-    padding: 0 1rem 1rem;
+    padding: 0 1rem 0.5rem;
     color: #666;
+    text-align: center;
 }
 
 .profesional-card button {
@@ -113,6 +133,7 @@ main {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s;
+    border-radius: 0 0 12px 12px;
 }
 
 .profesional-card button:hover {
@@ -141,59 +162,39 @@ main {
     margin: 0.5rem 0;
 }
 
-/* Página de Contacto */
+/* Contacto */
 .contacto {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
     gap: 3rem;
+    padding: 2rem 5%;
 }
 
-.info-contacto h3 {
-    color: var(--color-primario);
-    margin: 1.5rem 0 0.5rem;
-}
-.direccion {
-    text-align: left !important;
-    display: block;
-    width: 100%;
-}
-.info-contacto p, .info-contacto a {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: var(--color-texto);
+.contacto .formulario,
+.contacto .info-contacto {
+    flex: 1;
+    max-width: 500px;
 }
 
-.info-contacto a {
-    text-decoration: none;
-    color: var(--color-secundario);
-}
-
-.info-contacto a:hover {
-    text-decoration: underline;
-}
-
-
-
-.formulario form {
+.contacto .formulario form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.formulario label {
-    font-weight: 600;
-    color: var(--color-primario);
-}
-
-.formulario input,
-.formulario textarea {
+.contacto .formulario input,
+.contacto .formulario textarea {
     padding: 0.8rem;
+    font-size: 1rem;
     border: 1px solid #ddd;
     border-radius: 8px;
-    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.formulario button {
+.contacto .formulario button {
+    width: 50%;
     padding: 0.8rem;
     background: var(--color-primario);
     color: white;
@@ -202,19 +203,35 @@ main {
     font-weight: 600;
     cursor: pointer;
     transition: background 0.3s;
+    align-self: flex-start;
 }
 
-.formulario button:hover {
+.contacto .formulario button:hover {
     background: #3a6bc7;
 }
 
-/* Footer */
+@media (max-width: 768px) {
+    .contacto {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .contacto .formulario,
+    .contacto .info-contacto {
+        max-width: 100%;
+    }
+
+    .contacto .formulario button {
+        width: 100%;
+    }
+}
+
+
 footer {
     background: #333;
     color: white;
     text-align: center;
     padding: 1.5rem;
-    margin-top: 3rem;
 }
 
 footer a {
@@ -240,28 +257,18 @@ footer a:hover {
         justify-content: center;
     }
 
-    .contacto {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
     .profesionales-grid {
         grid-template-columns: 1fr;
     }
 }
-/* Estilos para el logo en el header */
+
+/* Logo */
 .logo {
     height: 90px;
     margin-right: 20px;
-    vertical-align: middle;
-}
-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
 }
 
-/* Estilos para redes sociales en el footer */
+/* Redes sociales en footer */
 .redes-sociales {
     margin-top: 1rem;
     display: flex;
@@ -281,6 +288,7 @@ header {
     text-decoration: underline;
 }
 
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -307,5 +315,4 @@ header {
     top: 10px; right: 15px;
     font-size: 1.5rem;
     cursor: pointer;
-}    
-
+}
