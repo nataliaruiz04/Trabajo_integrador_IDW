@@ -13,7 +13,7 @@
     box-sizing: border-box;
 }
 
-/* === Asegurar altura completa para el layout === */
+
 html, body {
     height: 100%;
     margin: 0;
@@ -46,31 +46,12 @@ header h1 {
     font-weight: 700;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    transition: background 0.3s;
-}
-
-nav a:hover {
-    background: rgba(255,255,255,0.2);
-}
-
 main {
     padding: 3rem 5%;
     flex: 1; 
 }
 
-/* Catálogo de profesionales */
+
 .catalogo h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -99,7 +80,6 @@ main {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
-
 
 .profesional-card img {
     width: 100%;
@@ -140,7 +120,7 @@ main {
     background: #3a6bc7;
 }
 
-/* Página Institucional */
+
 .institucional section {
     margin: 2rem 0;
     padding: 1.5rem;
@@ -162,7 +142,7 @@ main {
     margin: 0.5rem 0;
 }
 
-/* Contacto */
+
 .contacto {
     display: flex;
     justify-content: space-between;
@@ -226,7 +206,6 @@ main {
     }
 }
 
-
 footer {
     background: #333;
     color: white;
@@ -244,31 +223,18 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
 
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .profesionales-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Logo */
 .logo {
     height: 90px;
     margin-right: 20px;
+    margin-left: 110px; 
+    border-radius: 12px; 
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1)
 }
 
-/* Redes sociales en footer */
+
+
 .redes-sociales {
     margin-top: 1rem;
     display: flex;
@@ -288,7 +254,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Modal */
+
 .modal {
     display: none;
     position: fixed;
@@ -315,4 +281,48 @@ footer a:hover {
     top: 10px; right: 15px;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+
+.btn-clinica {
+  
+  background-color: var(--color-primario) !important;
+  
+  
+  background-image: none !important;
+  
+ 
+  border-color: var(--color-primario) !important;
+  
+  
+  color: white !important;
+  
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  transition: all 0.25s ease;
+  box-shadow: none;
+  
+  
+  background: var(--color-primario) !important;
+}
+.btn-clinica:hover {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: transparent !important;
+  color: var(--color-primario) !important;
+  border-color: var(--color-primario) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 991.98px) {
+  .btn-clinica {
+    width: 100%;
+    text-align: center;
+    margin-top: 6px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
 }
